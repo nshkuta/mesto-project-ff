@@ -1,8 +1,6 @@
 // Темплейт карточки
 const cardTemplate = document.querySelector("#card-template").content;
 
-// @todo: DOM узлы
-
 // Функция создания карточки
 function createCard(card, deleteFunc) {
   let cardElement = cardTemplate.querySelector(".card").cloneNode(true);
