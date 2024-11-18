@@ -3,19 +3,22 @@ const cardTemplate = document.querySelector("#card-template").content;
 
 // Функция создания карточки
 function createCard(card, deleteFunc) {
-  let cardElement = cardTemplate.querySelector(".card").cloneNode(true);
-  cardElement.querySelector(".card__image").src = card["link"];
-  cardElement.querySelector(".card__image").alt = card["name"];
-  cardElement.querySelector(".card__title").textContent = card["name"];
-  cardElement
-    .querySelector(".card__delete-button")
-    .addEventListener("click", deleteFunc);
+  const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
+  const cardImage = cardElement.querySelector(".card__image");
+  const cardTitle = cardElement.querySelector(".card__title");
+  const cardDeleteButton = cardElement.querySelector(".card__delete-button");
+
+  cardImage.src = card.link;
+  cardImage.alt = card.name;
+  cardTitle.textContent = card.name;
+  cardDeleteButton.addEventListener("click", () => deleteFunc(cardElement));
+
   return cardElement;
 }
 
 // Функция удаления карточки
-function deleteCard(event) {
-  event.target.parentElement.remove();
+function deleteCard(cardElement) {
+  cardElement.remove();
 }
 
 // Вывести карточки на страницу
