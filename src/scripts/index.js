@@ -44,11 +44,10 @@ initialCards.forEach((card) => {
 });
 
 // Попап с фотографией
-function handleImageClick(cardElement) {
-  const cardTitle = cardElement.querySelector(".card__title").textContent;
-  popupImageImage.src = cardElement.querySelector(".card__image").src;
-  popupImageImage.alt = cardTitle;
-  popupImageCaption.textContent = cardTitle;
+function handleImageClick(card) {
+  popupImageImage.src = card.link;
+  popupImageImage.alt = card.name;
+  popupImageCaption.textContent = card.name;
   openModal(popupImage);
 }
 
@@ -67,11 +66,11 @@ profileAddButton.addEventListener("click", () => openModal(popupNewCard));
 
 profileForm.addEventListener("submit", (evt) => {
   handleProfileFormSubmit(evt, profileTitle, profileDescription);
-  closeModal(evt.target.closest(".popup"));
+  closeModal(popupEdit);
 });
 
 newPlaceForm.addEventListener("submit", (evt) => {
   const card = handlePlaceFormSubmit(evt);
   placesList.prepend(createCard(card, cardCallbacks));
-  closeModal(evt.target.closest(".popup"));
+  closeModal(popupNewCard);
 });

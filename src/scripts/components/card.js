@@ -12,9 +12,13 @@ export function createCard(card, callbacks) {
   cardImage.src = card.link;
   cardImage.alt = card.name;
   cardTitle.textContent = card.name;
-  cardDeleteButton.addEventListener("click", () => callbacks.deleteCard(cardElement));
-  cardLikeButton.addEventListener("click", () => callbacks.handleLike(cardLikeButton));
-  cardImage.addEventListener("click", () => callbacks.handleImageClick(cardElement));
+  cardDeleteButton.addEventListener("click", () =>
+    callbacks.deleteCard(cardElement)
+  );
+  cardLikeButton.addEventListener("click", () =>
+    callbacks.handleLike(cardLikeButton)
+  );
+  cardImage.addEventListener("click", () => callbacks.handleImageClick(card));
 
   return cardElement;
 }
