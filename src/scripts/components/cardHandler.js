@@ -1,14 +1,11 @@
-export function handlePlaceFormSubmit(evt, placeForm) {
-    evt.preventDefault();
-    const placeNameInput = placeForm["place-name"];
-    const linkInput = placeForm["link"];
-      const card = {
-        name: placeNameInput.value,
-        link: linkInput.value,
-      };
-      placeNameInput.value = "";
-      linkInput.value = "";
+export function handlePlaceFormSubmit(evt) {
+  evt.preventDefault();
+  const placeNameInput = evt.target["place-name"];
+  const linkInput = evt.target["link"];
+  const card = {
+    name: placeNameInput.value,
+    link: linkInput.value,
+  };
+  evt.target.reset();
   return card;
-    
 }
-  

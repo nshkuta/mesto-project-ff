@@ -1,5 +1,3 @@
-
-
 function closeModalByEsc(evt) {
   if (evt.key === "Escape")
     closeModal(document.querySelector(".popup_is-opened"));
