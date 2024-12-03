@@ -7,6 +7,35 @@
   background-size: cover;
   background-position: center;
   margin: 0 29px 0 0;
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile__image:hover {
+  cursor: pointer;
+}
+
+.profile__image:hover:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+}
+
+.profile__image-edit-image {
+  opacity: 0;
+  z-index: 2;
+}
+
+.profile__image:hover .profile__image-edit-image {
+  opacity: 1;
 }
 
 @media screen and (max-width: 740px) {

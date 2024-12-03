@@ -16,6 +16,11 @@
   -ms-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
+  visibility: visible;
+}
+
+.card__delete-button-hidden {
+  visibility: hidden;
 }
 
 .card__delete-button:hover {
