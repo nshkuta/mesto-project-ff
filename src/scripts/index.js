@@ -101,7 +101,6 @@ profileForm.addEventListener("submit", (evt) => {
       toggleButtonLoading(submitButton);
     })
     .catch((err) => {
-      closeModal(popupEdit);
       toggleButtonLoading(submitButton);
       console.log(err);
     });
@@ -128,7 +127,6 @@ newPlaceForm.addEventListener("submit", (evt) => {
       evt.target.reset();
     })
     .catch((err) => {
-      closeModal(popupEdit);
       toggleButtonLoading(submitButton);
       console.log(err);
     });
@@ -155,7 +153,6 @@ avatarForm.addEventListener("submit", (evt) => {
       evt.target.reset();
     })
     .catch((err) => {
-      closeModal(popupEdit);
       toggleButtonLoading(submitButton);
       console.log(err);
     });
@@ -177,19 +174,23 @@ enableValidation(validationConfig);
 const cardsPromise = getCards();
 const profilePromise = getProfile();
 
-Promise.all([cardsPromise, profilePromise]).then(([cards, profile]) => {
-  cards.forEach((card) => {
-    const newProfile = {
-      title: profile.name,
-      description: profile.about,
-      image: profile.avatar,
-      id: profile._id,
-    };
-    updateProfile(profileElements, newProfile);
+Promise.all([cardsPromise, profilePromise])
+  .then(([cards, profile]) => {
+    cards.forEach((card) => {
+      const newProfile = {
+        title: profile.name,
+        description: profile.about,
+        image: profile.avatar,
+        id: profile._id,
+      };
+      updateProfile(profileElements, newProfile);
 
-    placesList.append(createCard(card, newProfile.id, cardCallbacks));
+      placesList.append(createCard(card, newProfile.id, cardCallbacks));
+    });
+  })
+  .catch((err) => {
+    console.log(err);
   });
-});
 
 // Текст на кнопке
 function toggleButtonLoading(buttonElement) {

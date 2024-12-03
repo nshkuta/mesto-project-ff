@@ -43,9 +43,13 @@ export function createCard(card, profileID, callbacks) {
 
 // Функция удаления карточки
 export function removeCard(cardElement) {
-  deleteCard(cardElement.dataset.id).then(() => {
-    cardElement.remove();
-  });
+  deleteCard(cardElement.dataset.id)
+    .then(() => {
+      cardElement.remove();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
 // Проверка лайка
@@ -63,18 +67,26 @@ export function handleLike(
   profileID
 ) {
   if (checkLike(card, profileID)) {
-    deleteLike(card._id).then((res) => {
-      card.likes = Array.from(res.likes);
-      cardLikeButtonLikes.textContent = card.likes.length;
+    deleteLike(card._id)
+      .then((res) => {
+        card.likes = Array.from(res.likes);
+        cardLikeButtonLikes.textContent = card.likes.length;
 
-      cardLikeButton.classList.remove("card__like-button_is-active");
-    });
+        cardLikeButton.classList.remove("card__like-button_is-active");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   } else {
-    putLike(card._id).then((res) => {
-      card.likes = Array.from(res.likes);
-      cardLikeButtonLikes.textContent = card.likes.length;
+    putLike(card._id)
+      .then((res) => {
+        card.likes = Array.from(res.likes);
+        cardLikeButtonLikes.textContent = card.likes.length;
 
-      cardLikeButton.classList.add("card__like-button_is-active");
-    });
+        cardLikeButton.classList.add("card__like-button_is-active");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 }

@@ -9,16 +9,12 @@ export function getCards() {
     headers: {
       authorization: APIConfig.token,
     },
-  })
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    })
-    .catch((err) => {
-      console.log(err); // выводим ошибку в консоль
-    });
+  }).then((res) => {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
+  });
 }
 
 export function getProfile() {
@@ -26,16 +22,12 @@ export function getProfile() {
     headers: {
       authorization: APIConfig.token,
     },
-  })
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    })
-    .catch((err) => {
-      console.log(err); // выводим ошибку в консоль
-    });
+  }).then((res) => {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
+  });
 }
 
 export function saveProfile(newData) {
@@ -49,16 +41,12 @@ export function saveProfile(newData) {
       name: newData.title,
       about: newData.description,
     }),
-  })
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    })
-    .catch((err) => {
-      console.log(err); // выводим ошибку в консоль
-    });
+  }).then((res) => {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
+  });
 }
 
 export function addCard(newCard) {
@@ -72,16 +60,12 @@ export function addCard(newCard) {
       name: newCard.name,
       link: newCard.link,
     }),
-  })
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    })
-    .catch((err) => {
-      console.log(err); // выводим ошибку в консоль
-    });
+  }).then((res) => {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
+  });
 }
 
 export function deleteCard(cardID) {
@@ -91,16 +75,12 @@ export function deleteCard(cardID) {
       authorization: APIConfig.token,
       "Content-Type": "application/json",
     },
-  })
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    })
-    .catch((err) => {
-      console.log(err); // выводим ошибку в консоль
-    });
+  }).then((res) => {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
+  });
 }
 
 export function putLike(cardID) {
@@ -110,16 +90,12 @@ export function putLike(cardID) {
       authorization: APIConfig.token,
       "Content-Type": "application/json",
     },
-  })
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    })
-    .catch((err) => {
-      console.log(err); // выводим ошибку в консоль
-    });
+  }).then((res) => {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
+  });
 }
 
 export function deleteLike(cardID) {
@@ -129,16 +105,12 @@ export function deleteLike(cardID) {
       authorization: APIConfig.token,
       "Content-Type": "application/json",
     },
-  })
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    })
-    .catch((err) => {
-      console.log(err); // выводим ошибку в консоль
-    });
+  }).then((res) => {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
+  });
 }
 
 export function setAvatar(url) {
@@ -151,14 +123,10 @@ export function setAvatar(url) {
     body: JSON.stringify({
       avatar: url,
     }),
-  })
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    })
-    .catch((err) => {
-      console.log(err); // выводим ошибку в консоль
-    });
+  }).then((res) => {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
+  });
 }
